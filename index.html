@@ -18,11 +18,10 @@
       aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse" id="navbarsExample02">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#">Punto 1</a>
+          <a class="nav-link" id="punto1" href="#">Punto 1</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">punto 2</a>
@@ -68,11 +67,14 @@
         </div>
       </div>
       <div class="row mx-auto">
-          <div class="form-group">
-              <label>Color</label>
-              <input type="color" class="form-control" id="color" placeholder="height">
-            </div>
+        <div class="form-group">
+          <label>Color</label>
+          <input type="color" class="form-control" id="color" placeholder="height">
+        </div>
       </div>
+      <button type="submit" class="btn btn-primary" id="punto 3">Submit</button>
+      <button type="submit" class="btn btn-primary" id="blancoynegro">Submit</button>
+      <button type="submit" class="btn btn-primary" id="blancoynegro">Submit</button>
       <button type="submit" class="btn btn-primary" id="blancoynegro">Submit</button>
     </form>
   </div>
@@ -80,14 +82,14 @@
     <canvas id="canv"></canvas>
   </div>
   <div class="container">
-  <form>
-    <div class="form-group">
-      <label for="exampleFormControlFile1">Example file input</label>
-      <input type="file" class="form-control-file" id="exampleFormControlFile1">
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
-</div>
+    <form>
+      <div class="form-group">
+        <label for="exampleFormControlFile1">Example file input</label>
+        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
   </script>
@@ -98,6 +100,7 @@
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
   </script>
   <script src="js/main.js"></script>
+  <script src="js/arreglos.js"></script>
 </body>
 
 </html>
