@@ -1,12 +1,16 @@
-document.querySelector("#blancoynegro").addEventListener("click", canvaspunto2)
+document.querySelector(".punto2").addEventListener("click", canvaspunto2)
 
 function canvaspunto2() {
+    document.querySelector(".form-canvas").style.display = "block";
     let canvas = document.getElementById('canv');
     let ctx = canvas.getContext("2d");
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    document.querySelector("#punto1submit").addEventListener("click", function () {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.fillStyle = document.querySelector("#color").value;
     ctx.fillRect(document.querySelector("#ejex").value, document.querySelector("#ejey").value, document.querySelector("#width").value, document.querySelector("#height").value);
-}
+
+    })
+    }
 
 function canvaspunto3() {
     let width = document.querySelector("#width").value;
@@ -23,7 +27,6 @@ function canvaspunto3() {
     ctx.putImageData(image, 22, 21);
 
 }
-canvaspunto2()
 
 function canvaspunto4() {
     let width = 60;

@@ -13,7 +13,7 @@
 
 <body>
   <nav class="navbar navbar-expand navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Practico 1</a>
+    <a class="navbar-brand">Practico 1</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02"
       aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -25,7 +25,7 @@
           <a class="nav-link punto1" href="#">Punto 1</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">punto 2</a>
+          <a class="nav-link punto2" href="#">punto 2</a>
         </li>
         <li class="nav-item">
           <a class="nav-link punto3" href="#">Punto 3</a>
@@ -42,52 +42,53 @@
       </ul>
     </div>
   </nav>
-  <div class="container form-canvas">
-    <form class="mt-2">
-      <div class="row">
-        <div class="col-6">
-          <div class="form-group">
-            <label>Lugar a comenzar imagen eje x</label>
-            <input type="number" class="form-control" value="0" id="ejex" placeholder="Eje X">
-          </div>
-          <div class="form-group">
-            <label>Lugar a comenzar imagen eje y</label>
-            <input type="number" class="form-control" value="0" id="ejey" placeholder="Eje X">
-          </div>
-          <small class="form-text text-muted">El punto de inicio debe encontrarse dentro del area de canvas</small>
-        </div>
-        <div class="col-6">
-          <div class="form-group">
-            <label>Width</label>
-            <input type="number" class="form-control" value="100" id="width" placeholder="width">
-          </div>
-          <div class="form-group">
-            <label>Height</label>
-            <input type="number" class="form-control" value="100" id="height" placeholder="height">
-          </div>
-        </div>
-      </div>
-      <div class="row mx-auto">
-          <div class="form-group">
-              <label>Color</label>
-              <input type="color" class="form-control" id="color" placeholder="height">
-            </div>
-      </div>
-      <button type="submit" class="btn btn-primary" id="blancoynegro">Submit</button>
-    </form>
-  </div>
+
   <div class="col-12 mx-auto mt-2">
     <canvas id="canv"></canvas>
   </div>
-  <div class="container">
-  <form>
-    <div class="form-group">
-      <label for="exampleFormControlFile1">Example file input</label>
-      <input type="file" class="form-control-file" id="exampleFormControlFile1">
+  <div class="container subirarchivo">
+    <form>
+      <div class="form-group ">
+        <label for="exampleFormControlFile1">Example file input</label>
+        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+  <div class="container form-canvas">
+      <form class="mt-2">
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <label>Lugar a comenzar imagen eje x</label>
+              <input type="number" class="form-control" value="0" id="ejex" placeholder="Eje X">
+            </div>
+            <div class="form-group">
+              <label>Lugar a comenzar imagen eje y</label>
+              <input type="number" class="form-control" value="0" id="ejey" placeholder="Eje X">
+            </div>
+            <small class="form-text text-muted">El punto de inicio debe encontrarse dentro del area de canvas</small>
+          </div>
+          <div class="col-6">
+            <div class="form-group">
+              <label>Width</label>
+              <input type="number" class="form-control" value="100" id="width" placeholder="width">
+            </div>
+            <div class="form-group">
+              <label>Height</label>
+              <input type="number" class="form-control" value="100" id="height" placeholder="height">
+            </div>
+          </div>
+        </div>
+        <div class="row mx-auto">
+            <div class="form-group">
+                <label>Color</label>
+                <input type="color" class="form-control" id="color" placeholder="height">
+              </div>
+        </div>
+        <button type="submit" class="btn btn-primary" id="punto1submit">Submit</button>
+      </form>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
-</div>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
   </script>
