@@ -1,23 +1,29 @@
-//punto 1
-function canvaspunto1() {
-    let ctx = document.getElementById('canv').getContext("2d");
-    ctx.fillStyle = '#B6624F';
-    ctx.fillRect(22, 21, 222, 333);
+document.querySelector("#blancoynegro").addEventListener("click", canvaspunto2)
+
+function canvaspunto2() {
+    let canvas = document.getElementById('canv');
+    let ctx = canvas.getContext("2d");
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = document.querySelector("#color").value;
+    ctx.fillRect(document.querySelector("#ejex").value, document.querySelector("#ejey").value, document.querySelector("#width").value, document.querySelector("#height").value);
 }
 
 function canvaspunto3() {
-    let width = 122;
-    let height = 222;
-    let ctx = document.getElementById('canv').getContext("2d");
+    let width = document.querySelector("#width").value;
+    let height = document.querySelector("#height").value;
+    let canvas = document.getElementById('canv');
+    let ctx = canvas.getContext("2d");
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     let image = ctx.createImageData(width, height);
     for (let x = 0; x < image.width; x++) {
         for (let y = 0; y < image.height; y++) {
-            setpixel(image, x, y, 182, 98, 79, 255)
+            setpixel(image, x, y, 0, 0, 0, 255)
         }
     }
     ctx.putImageData(image, 22, 21);
 
 }
+canvaspunto2()
 
 function canvaspunto4() {
     let width = 60;
@@ -29,14 +35,10 @@ function canvaspunto4() {
             r = y / (height) * 255;
             g = y / (height) * 255;
             b = y / height * 255;
-            setpixel(image, x, y, r, g, b, 255)
+            setpixel(image, x, y, r, g, b, 5)
         }
-
     }
-    console.log(r);
-
     ctx.putImageData(image, 22, 21);
-
 }
 
 function canvaspunto5() {
@@ -70,7 +72,6 @@ function setpixel(imageData, x, y, r, g, b, a) {
     imageData.data[i + 3] = a;
 }
 //ejec
-function punto5() {
+function canvaspunto6() {
 
 }
-canvaspunto4();
