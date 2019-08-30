@@ -3,3 +3,6 @@ canvas{
     height: 100%;
     border: solid 0.5px;
 }
+.form-canvas{
+    display: none;
+}

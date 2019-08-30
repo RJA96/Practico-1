@@ -1,9 +1,21 @@
-let f = 3;
-let c = 5;
+document.querySelector(".punto1").addEventListener("click", ejecutar_punto_1)
 
-let matriz = [, ];
 
-function llenar(m) {
+
+
+function ejecutar_punto_1() {
+    let matriz = [, ];
+    let fila = 100;
+    let columna = 100;
+    llenar(matriz,fila,columna);
+    console.log("inciso a");
+    buscar_mayor(matriz,fila,columna);
+    console.log("inciso b");
+    filaspares_filasimpares(matriz,fila,columna);
+    console.log("inciso c");
+    promediofila(matriz,fila,columna);
+}
+function llenar(m,f,c) {
     for (let i = 0; i < f; i++) {
         m[i] = [];
         for (let j = 0; j < c; j++) {
@@ -14,7 +26,7 @@ function llenar(m) {
     console.table(m)
 }
 
-function buscar_mayor(m) {
+function buscar_mayor(m,f,c) {
     let mayor = m[0][0];
     for (let i = 0; i < f; i++) {
         for (let j = 0; j < c; j++) {
@@ -23,11 +35,11 @@ function buscar_mayor(m) {
             }
         }
     }
-    console.log("mayor total : " + mayor);
+    console.log("mayor total: " + mayor);
 
 }
 
-function filaspares_filasimpares(m) {
+function filaspares_filasimpares(m,f,c) {
     let menor = m[0][0];
     let mayor = m[0][0];
     for (let i = 0; i < f; i++) {
@@ -43,16 +55,16 @@ function filaspares_filasimpares(m) {
             }
         }
         if (i % 2 == 0) {
-            console.log("mayor fila " + i + "= " + mayor);
+            console.log("mayor fila: " + i + " = " + mayor);
         } else {
-            console.log("menor fila" + i + "= " + menor);
+            console.log("menor fila: " + i + " = " + menor);
         }
     }
 
 
 }
 
-function promediofila(m) {
+function promediofila(m,f,c) {
     let promedio = [f];
     let suma;
     let aux = 0;
@@ -61,6 +73,7 @@ function promediofila(m) {
             suma = m[i][j];
         }
         promedio[aux] = (suma / c);
+        aux++;
     }
     console.log("promedio: " + promedio);
 }
