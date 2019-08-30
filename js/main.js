@@ -7,33 +7,30 @@ function canvaspunto2() {
     let ctx = canvas.getContext("2d");
     document.querySelector("#punto1submit").addEventListener("click", function () {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = document.querySelector("#color").value;
-    ctx.fillRect(document.querySelector("#ejex").value, document.querySelector("#ejey").value, document.querySelector("#width").value, document.querySelector("#height").value);
-
+        canvas.height = document.querySelector("#height").value;
+        canvas.width = document.querySelector("#width").value;
+        ctx.fillStyle = document.querySelector("#color").value;
+        ctx.fillRect(document.querySelector("#ejex").value, document.querySelector("#ejey").value, document.querySelector("#width").value, document.querySelector("#height").value);
     })
-    }
+}
 
 function canvaspunto3() {
-    document.querySelector(".form-canvas").style.display = "block";
-    document.querySelector("#punto1submit").setAttribute("class", "punto2submit");
-    document.querySelector("#punto1submit").removeAttribute("id");
-    let width = document.querySelector("#width").value;
-    let height = document.querySelector("#height").value;
     let canvas = document.getElementById('canv');
     let ctx = canvas.getContext("2d");
+    let width = document.querySelector("#width").value;
+    let height = document.querySelector("#height").value;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    document.querySelector(".punto2submit").addEventListener("click",function(){
+   // document.querySelector(".punto2submit").addEventListener("click", function () {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         let image = ctx.createImageData(width, height);
-    for (let x = 0; x < image.width; x++) {
-        for (let y = 0; y < image.height; y++) {
-            setpixel(image, x, y, 0, 0, 0, 255)
+        for (let x = 0; x < image.width; x++) {
+            for (let y = 0; y < image.height; y++) {
+                setpixel(image, x, y, 0, 0, 0, 255)
+            }
         }
-    }
-    ctx.putImageData(image, document.querySelector("#ejex").value, document.querySelector("#ejey").value);
+        ctx.putImageData(image, document.querySelector("#ejex").value, document.querySelector("#ejey").value);
+    //})
 
-    })
-    
 }
 
 function canvaspunto4() {
@@ -90,9 +87,9 @@ function canvaspunto6() {
     img.onload = function () {
         canvas.height = img.height;
         canvas.width = img.width;
-        ctx.drawImage(img, 0, 0, img.width, img.height,0,0,canvas.width,canvas.height);
+        ctx.drawImage(img, 0, 0, img.width, img.height, 0, 0, canvas.width, canvas.height);
     }
     img.crossOrigin = "Anonymous";
-   // img.src = "https://cdn.iconscout.com/icon/free/png-256/avatar-372-456324.png";
-   img.src = "3.jpg"
+    // img.src = "https://cdn.iconscout.com/icon/free/png-256/avatar-372-456324.png";
+    img.src = "3.jpg"
 }
