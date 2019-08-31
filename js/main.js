@@ -93,3 +93,22 @@ function canvaspunto6() {
     // img.src = "https://cdn.iconscout.com/icon/free/png-256/avatar-372-456324.png";
     img.src = "img/3.jpg"
 }
+
+async function asyncro(){
+    let response = await fetch('punto_2.html');
+    let dom = await response.text();
+    return {
+        ht: dom
+    }
+}
+
+function show(){
+    asyncro().then(r=>{
+        let dom=r.ht;
+        console.log(dom);
+        
+        
+        document.querySelector(".use-async").innerHTML = dom;
+    })
+    
+}
