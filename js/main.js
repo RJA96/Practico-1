@@ -1,17 +1,25 @@
-document.querySelector(".punto2").addEventListener("click", canvaspunto2)
+document.querySelector(".punto2").addEventListener("click", () => {
+    let test = document.getElementById("use-async");
+    asyncro(test,"punto_2.html").then(function () {
+        canvaspunto2();
+    })
+})
+
 document.querySelector(".punto3").addEventListener("click", canvaspunto3)
 
 function canvaspunto2() {
     document.querySelector(".form-canvas").style.display = "block";
     let canvas = document.getElementById('canv');
     let ctx = canvas.getContext("2d");
-    document.querySelector("#punto1submit").addEventListener("click", function () {
+    document.querySelector("#punto2submit").addEventListener("click", function () {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         canvas.height = document.querySelector("#height").value;
         canvas.width = document.querySelector("#width").value;
         ctx.fillStyle = document.querySelector("#color").value;
-        ctx.fillRect(document.querySelector("#ejex").value, document.querySelector("#ejey").value, document.querySelector("#width").value, document.querySelector("#height").value);
+        ctx.fillRect(0, 0, document.querySelector("#width").value, document.querySelector("#height").value);
     })
+    console.log(hexToRgb(document.querySelector("#color").value).r);
+    
 }
 
 function canvaspunto3() {
@@ -20,19 +28,24 @@ function canvaspunto3() {
     let width = document.querySelector("#width").value;
     let height = document.querySelector("#height").value;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-   // document.querySelector(".punto2submit").addEventListener("click", function () {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        let image = ctx.createImageData(width, height);
-        for (let x = 0; x < image.width; x++) {
-            for (let y = 0; y < image.height; y++) {
-                setpixel(image, x, y, 0, 0, 0, 255)
-            }
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    let image = ctx.createImageData(width, height);
+    for (let x = 0; x < image.width; x++) {
+        for (let y = 0; y < image.height; y++) {
+            setpixel(image, x, y, 0, 0, 0, 255)
         }
-        ctx.putImageData(image, document.querySelector("#ejex").value, document.querySelector("#ejey").value);
-    //})
+    }
+    ctx.putImageData(image, document.querySelector("#ejex").value, document.querySelector("#ejey").value);
 
 }
-
+function hexToRgb(hex) {
+    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result ? {
+      r: parseInt(result[1], 16),
+      g: parseInt(result[2], 16),
+      b: parseInt(result[3], 16)
+    } : null;
+}
 function canvaspunto4() {
     let width = 60;
     let height = 50;
@@ -94,20 +107,9 @@ function canvaspunto6() {
     img.src = "img/3.jpg"
 }
 
-async function asyncro(){
-    let response = await fetch('punto_2.html');
-    let dom = await response.text();
-    document.querySelector(".use-async").innerHTML = dom;
-    
-}
-
-function show(){
-    asyncro().then(r=>{
-        let dom=r.ht;use-async
-        console.log(dom);
-        
-        
-        document.querySelector(".use-async").innerHTML = dom;
-    })
-    
+async function asyncro(h,url) {
+    let response = await fetch(url);    
+    if (response.ok) {
+        h.innerHTML = await response.text();
+    }
 }
