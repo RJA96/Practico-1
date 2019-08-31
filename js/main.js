@@ -97,14 +97,13 @@ function canvaspunto6() {
 async function asyncro(){
     let response = await fetch('punto_2.html');
     let dom = await response.text();
-    return {
-        ht: dom
-    }
+    document.querySelector(".use-async").innerHTML = dom;
+    
 }
 
 function show(){
     asyncro().then(r=>{
-        let dom=r.ht;
+        let dom=r.ht;use-async
         console.log(dom);
         
         
