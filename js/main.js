@@ -91,5 +91,5 @@ function canvaspunto6() {
     }
     img.crossOrigin = "Anonymous";
     // img.src = "https://cdn.iconscout.com/icon/free/png-256/avatar-372-456324.png";
-    img.src = "3.jpg"
+    img.src = "img/3.jpg"
 }
