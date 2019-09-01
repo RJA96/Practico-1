@@ -145,6 +145,10 @@ function canvaspunto6() {
                     canvas.width = img.width;
                     ctx.drawImage(img, 0, 0, img.width, img.height, 0, 0, canvas.width, canvas.height);
                     document.querySelector(".form-canvas").style.display = "none";
+                    document.querySelector(".escala_grises").style.display = "block";
+                    document.querySelector("#filtrsubmit").addEventListener("click", function () {
+                        
+                    })
             }
         }  
         }

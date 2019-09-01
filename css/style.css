@@ -6,4 +6,8 @@ canvas{
 body{
     background-image: url(img/90116.jpg)
 }
-
+.escala_grises{
+    display: none;
+    font-weight: bolder;
+    color:#b15050;
+}
