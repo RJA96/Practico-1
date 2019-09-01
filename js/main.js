@@ -122,7 +122,7 @@ function canvaspunto5() {
     });
 }
 
-function setpixel(imageData, x, y, r, g, b, a,t) {
+function setpixel(imageData, x, y, r, g, b, a) {
     i = (x + y * imageData.width) * 4;
     imageData.data[i] = r;
     imageData.data[i + 1] = g;
@@ -134,6 +134,7 @@ function canvaspunto6() {
     let canvas = document.getElementById('canv');
     let ctx = canvas.getContext("2d");
     document.querySelector("#punto5submit").addEventListener("click", function () {
+        event.preventDefault();
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         if (document.querySelector("#subir").value==='') {
             if (document.querySelector("#basic-url").value !='') {
@@ -146,8 +147,16 @@ function canvaspunto6() {
                     ctx.drawImage(img, 0, 0, img.width, img.height, 0, 0, canvas.width, canvas.height);
                     document.querySelector(".form-canvas").style.display = "none";
                     document.querySelector(".escala_grises").style.display = "block";
-                    document.querySelector("#filtrsubmit").addEventListener("click", function () {
-                        
+                    document.querySelector("#filtrsubmit").addEventListener("click", function () {  
+                        event.preventDefault();
+                        let imagedata = ctx.getImageData(0,0,img.width,img.height); 
+                        if (document.getElementsByName("opciones")[1].checked){
+                            escala_grises(1, imagedata);
+                        }
+                        else{
+                            escala_grises(0, imagedata);
+                        }
+                        ctx.putImageData(imagedata, 0, 0);
                     })
             }
         }  
@@ -167,7 +176,41 @@ function canvaspunto6() {
 
     });
 }
+function getRed(imageData,x,y){
+    index = (x+y*imageData.width)*4;
+    return imageData.data[index+0];
+}
+function getGreen(imageData,x,y){
+    index = (x+y*imageData.width)*4;
+    return imageData.data[index+1];
+}
+function getBlue(imageData,x,y){
+    index = (x+y*imageData.width)*4;
+    return imageData.data[index+2];
+}
+function escala_grises(opcion,img){ 
+     
+    for (let x = 0; x < img.width; x++) {
+        for (let y = 0; y < img.height; y++) {
+            
+            let red = getRed(img,x,y);
+            let green = getGreen (img,x,y);
+            let blue = getBlue (img,x,y);
+            let gris
+            if (opcion==0){
+                gris = (red+green+blue)/3;
+            }
+            else{
+                gris = (red*0.33+green*0.5+0.15*blue);
+            }
+            setpixel(img,x,y,gris,gris,gris,255);
+        }
+        
+    }
 
+   // ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+}
 async function asyncro(h, url) {
     let response = await fetch(url);
     if (response.ok) {
