@@ -2,12 +2,8 @@ canvas{
     margin: auto;
     width: 100%;
 }
-.form-canvas{
-    display: none;
-}
+
 body{
     background-image: url(img/90116.jpg)
 }
-.subirarchivo{
-    display: none;
-}
+

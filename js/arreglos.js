@@ -1,6 +1,9 @@
-document.querySelector(".punto1").addEventListener("click", ejecutar_punto_1);
+document.querySelector(".punto1").addEventListener("click",()=>{
+    document.getElementById("use-async").innerHTML = "";
+    ejecutar_punto_1();
+} );
+
 function ejecutar_punto_1() {
-    document.querySelector(".form-canvas").style.display = "none";
     let matriz = [, ];
     let fila = 100;
     let columna = 100;

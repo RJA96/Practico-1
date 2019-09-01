@@ -1,14 +1,36 @@
 document.querySelector(".punto2").addEventListener("click", () => {
-    let test = document.getElementById("use-async");
-    asyncro(test,"punto_2.html").then(function () {
+    let ht = document.getElementById("use-async");
+    asyncro(ht, "punto_2.html").then(function () {
         canvaspunto2();
     })
 })
+document.querySelector(".punto3").addEventListener("click", () => {
+    let ht = document.getElementById("use-async");
+    asyncro(ht, "punto_3.html").then(function () {
+        canvaspunto3();
+    })
+})
+document.querySelector(".punto4").addEventListener("click", () => {
+    let ht = document.getElementById("use-async");
+    asyncro(ht, "punto_4.html").then(function () {
+        canvaspunto4();
+    })
+})
+document.querySelector(".punto5").addEventListener("click", () => {
+    let ht = document.getElementById("use-async");
+    asyncro(ht, "punto_5.html").then(function () {
+        canvaspunto5();
+    })
+})
+document.querySelector(".punto6").addEventListener("click", () => {
+    let ht = document.getElementById("use-async");
+    asyncro(ht, "punto_6.html").then(function () {        
+        canvaspunto6();
+    })
+})
 
-document.querySelector(".punto3").addEventListener("click", canvaspunto3)
 
 function canvaspunto2() {
-    document.querySelector(".form-canvas").style.display = "block";
     let canvas = document.getElementById('canv');
     let ctx = canvas.getContext("2d");
     document.querySelector("#punto2submit").addEventListener("click", function () {
@@ -18,74 +40,89 @@ function canvaspunto2() {
         ctx.fillStyle = document.querySelector("#color").value;
         ctx.fillRect(0, 0, document.querySelector("#width").value, document.querySelector("#height").value);
     })
-    console.log(hexToRgb(document.querySelector("#color").value).r);
-    
 }
 
 function canvaspunto3() {
     let canvas = document.getElementById('canv');
     let ctx = canvas.getContext("2d");
-    let width = document.querySelector("#width").value;
-    let height = document.querySelector("#height").value;
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    let image = ctx.createImageData(width, height);
-    for (let x = 0; x < image.width; x++) {
-        for (let y = 0; y < image.height; y++) {
-            setpixel(image, x, y, 0, 0, 0, 255)
+    document.querySelector("#punto3submit").addEventListener("click", function () {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        let image = ctx.createImageData(document.querySelector("#width").value, document.querySelector("#height").value);
+        canvas.width = image.width;
+        canvas.height = image.height;
+        let color = hexToRgb(document.querySelector("#color").value);
+        for (let x = 0; x < image.width; x++) {
+            for (let y = 0; y < image.height; y++) {
+                setpixel(image, x, y, color.r, color.g, color.b, 255)
+            }
         }
-    }
-    ctx.putImageData(image, document.querySelector("#ejex").value, document.querySelector("#ejey").value);
-
+        ctx.putImageData(image, 0, 0);
+    })
 }
+
 function hexToRgb(hex) {
     var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
     return result ? {
-      r: parseInt(result[1], 16),
-      g: parseInt(result[2], 16),
-      b: parseInt(result[3], 16)
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16)
     } : null;
 }
+
+
 function canvaspunto4() {
-    let width = 60;
-    let height = 50;
-    let ctx = document.getElementById('canv').getContext("2d");
-    let image = ctx.createImageData(width, height);
-    for (let x = 0; x < image.width; x++) {
-        for (let y = 0; y < image.height; y++) {
-            r = y / (height) * 255;
-            g = y / (height) * 255;
-            b = y / height * 255;
-            setpixel(image, x, y, r, g, b, 5)
+    let canvas = document.getElementById('canv');
+    let ctx = canvas.getContext("2d");
+    document.querySelector("#punto4submit").addEventListener("click", function () {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        let width = document.querySelector("#width").value;
+        let height = document.querySelector("#height").value;
+        let image = ctx.createImageData(width,height);
+        canvas.width = image.width;
+        canvas.height = image.height;
+        for (let x = 0; x < image.width; x++) {
+            for (let y = 0; y < image.height; y++) {
+                let r,g,b;
+                r = y / (height) * 255;
+                g = y / (height) * 255;
+                b = y / height * 255;
+                setpixel(image, x, y, r, g, b, 255)
+            }
         }
-    }
-    ctx.putImageData(image, 22, 21);
+        ctx.putImageData(image, 0, 0);
+    });  
 }
 
 function canvaspunto5() {
-    let width = 705;
-    let height = 555;
-    let ctx = document.getElementById('canv').getContext("2d");
-    let image = ctx.createImageData(width, height);
-    for (let x = 0; x < image.width; x++) {
-        for (let y = 0; y < image.height; y++) {
-            let r, g, b;
-            if (y < image.height / 2) {
-                r = y / (height / 2) * 255;
-                g = y / (height / 2) * 255;
-                b = y / height * 0;
-            } else {
-                r = 255;
-                g = (1 - ((y - height / 2) / (height / 2))) * 255;
-                b = 0;
+    let canvas = document.getElementById('canv');
+    let ctx = canvas.getContext("2d");
+    document.querySelector("#punto5submit").addEventListener("click", function () {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        let width = document.querySelector("#width").value;
+        let height = document.querySelector("#height").value;
+        let image = ctx.createImageData(width,height);
+        canvas.width = image.width;
+        canvas.height = image.height;
+        for (let x = 0; x < image.width; x++) {
+            for (let y = 0; y < image.height; y++) {
+                let r, g, b;
+                if (y < image.height / 2) {
+                    r = y / (image.height / 2) * 255;
+                    g = y / (image.height / 2) * 255;
+                    b = y / image.height * 0;
+                } else {
+                    r = 255;
+                    g = (1 - ((y - image.height / 2) / (image.height / 2))) * 255;
+                    b = 0;
+                }
+                setpixel(image, y, x, r, g, b, 255);
             }
-            setpixel(image, y, x, r, g, b, 255);
         }
-    }
-    ctx.putImageData(image, 22, 21);
+        ctx.putImageData(image, 0, 0)
+    });
 }
 
-function setpixel(imageData, x, y, r, g, b, a) {
+function setpixel(imageData, x, y, r, g, b, a,t) {
     i = (x + y * imageData.width) * 4;
     imageData.data[i] = r;
     imageData.data[i + 1] = g;
@@ -96,19 +133,39 @@ function setpixel(imageData, x, y, r, g, b, a) {
 function canvaspunto6() {
     let canvas = document.getElementById('canv');
     let ctx = canvas.getContext("2d");
-    let img = new Image();
-    img.onload = function () {
-        canvas.height = img.height;
-        canvas.width = img.width;
-        ctx.drawImage(img, 0, 0, img.width, img.height, 0, 0, canvas.width, canvas.height);
-    }
-    img.crossOrigin = "Anonymous";
-    // img.src = "https://cdn.iconscout.com/icon/free/png-256/avatar-372-456324.png";
-    img.src = "img/3.jpg"
+    document.querySelector("#punto5submit").addEventListener("click", function () {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        if (document.querySelector("#subir").value==='') {
+            if (document.querySelector("#basic-url").value !='') {
+                let img = new Image();
+                img.crossOrigin = "Anonymous";
+                img.src = document.querySelector("#basic-url").value;
+                img.onload = function () {
+                    canvas.height = img.height;
+                    canvas.width = img.width;
+                    ctx.drawImage(img, 0, 0, img.width, img.height, 0, 0, canvas.width, canvas.height);
+                    document.querySelector(".form-canvas").style.display = "none";
+            }
+        }  
+        }
+        else{
+            let img = new Image();
+            img.crossOrigin = "Anonymous";
+            img.src = document.querySelector("#subir").value;
+            img.onload = function () {
+                canvas.height = img.height;
+                canvas.width = img.width;
+                ctx.drawImage(img, 0, 0, img.width, img.height, 0, 0, canvas.width, canvas.height);
+            }
+        }
+        
+
+
+    });
 }
 
-async function asyncro(h,url) {
-    let response = await fetch(url);    
+async function asyncro(h, url) {
+    let response = await fetch(url);
     if (response.ok) {
         h.innerHTML = await response.text();
     }
