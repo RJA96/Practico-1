@@ -149,7 +149,7 @@ function canvaspunto6() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         if (document.querySelector("#basic-url").value != '') {
             let img = new Image();
-            //img.crossOrigin = "Anonymous";
+            img.crossOrigin = "Anonymous";
             img.src = document.querySelector("#basic-url").value;
             img.onload = function () {
                 canvas.height = img.height;

@@ -1,7 +1,10 @@
-document.querySelector(".punto1").addEventListener("click",()=>{
-    document.getElementById("use-async").innerHTML = "";
-    ejecutar_punto_1();
-} );
+document.querySelector(".punto1").addEventListener("click", () => {
+    event.preventDefault();
+    let ht = document.getElementById("use-async");
+    asyncro(ht, "punto_1.html").then(function () {
+        ejecutar_punto_1()
+    })
+})
 
 function ejecutar_punto_1() {
     let matriz = [, ];
