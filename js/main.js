@@ -154,9 +154,10 @@ function canvaspunto6() {
             img.onload = function () {
                 canvas.height = img.height;
                 canvas.width = img.width;
-                ctx.drawImage(img, 0, 0, img.width, img.height, 0, 0, canvas.width, canvas.height);
+                ctx.drawImage(img, 0, 0, img.width, img.height);
                 document.querySelector(".form-canvas").style.display = "none";
                 document.querySelector(".escala_grises").style.display = "block";
+                
                 document.querySelector(".Cargarotra").addEventListener("click", function () {
                     event.preventDefault();
                     let ht = document.getElementById("use-async");
